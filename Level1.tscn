@@ -1,0 +1,152 @@
+[gd_scene load_steps=15 format=3 uid="uid://c3xss1uis53js"]
+
+[ext_resource type="Script" uid="uid://c24tsb3vbjtsg" path="res://player.gd" id="1_mc20k"]
+[ext_resource type="Texture2D" uid="uid://bc7v8r1q2ea2p" path="res://PERRO DEFINITIVO.png" id="2_cove1"]
+[ext_resource type="PackedScene" uid="uid://h8y1svru7xq8" path="res://floor.tscn" id="3_cove1"]
+[ext_resource type="PackedScene" uid="uid://crya0wdu088mk" path="res://step.tscn" id="4_dwyiq"]
+[ext_resource type="PackedScene" uid="uid://dhk2emihqbksm" path="res://Enemy.tscn" id="5_dn5ey"]
+[ext_resource type="Texture2D" uid="uid://bs5k0oxbg25aj" path="res://pared.png" id="5_mlbie"]
+[ext_resource type="PackedScene" uid="uid://xoehnqgg1hql" path="res://hueso.tscn" id="6_lmyl5"]
+[ext_resource type="PackedScene" uid="uid://x2ba0chgykd6" path="res://parte_de_abajo.tscn" id="8_5g1s2"]
+[ext_resource type="PackedScene" uid="uid://bpmj1jri1bmbh" path="res://parte_del_medio.tscn" id="9_aiv1b"]
+[ext_resource type="PackedScene" uid="uid://c04f0mpkpoaye" path="res://parte_de_arriba.tscn" id="10_wapi5"]
+[ext_resource type="PackedScene" uid="uid://8stons7vwfer" path="res://parte_entre_medio.tscn" id="11_a2cb0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwyiq"]
+size = Vector2(103.5, 105)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cove1"]
+size = Vector2(200.5, 648)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s3sxq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_mlbie")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Level1" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+slide_on_ceiling = false
+script = ExtResource("1_mc20k")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(77, 491.125)
+scale = Vector2(0.114583, 0.115478)
+texture = ExtResource("2_cove1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(69.25, 482.5)
+shape = SubResource("RectangleShape2D_dwyiq")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(76, 445)
+
+[node name="Floor" type="Node2D" parent="."]
+position = Vector2(2, 1)
+
+[node name="StaticBody2D" parent="Floor" instance=ExtResource("3_cove1")]
+position = Vector2(-23, 514)
+
+[node name="Floor" parent="Floor" instance=ExtResource("3_cove1")]
+position = Vector2(914, 508)
+
+[node name="Floor2" parent="Floor" instance=ExtResource("3_cove1")]
+position = Vector2(1685, 508)
+
+[node name="Step" parent="Floor" instance=ExtResource("4_dwyiq")]
+position = Vector2(2444, 428)
+
+[node name="Step2" parent="Floor" instance=ExtResource("4_dwyiq")]
+position = Vector2(2576, 359)
+
+[node name="Step3" parent="Floor" instance=ExtResource("4_dwyiq")]
+position = Vector2(2702, 290)
+
+[node name="Floor3" parent="Floor" instance=ExtResource("3_cove1")]
+position = Vector2(3073, 512)
+
+[node name="Floor4" parent="Floor" instance=ExtResource("3_cove1")]
+position = Vector2(4058, 508)
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2(93, -42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2(-195, 370)
+shape = SubResource("RectangleShape2D_cove1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Wall"]
+position = Vector2(-345.5, 429.5)
+scale = Vector2(1.23571, 1.16114)
+sprite_frames = SubResource("SpriteFrames_s3sxq")
+
+[node name="Enemy" type="Node2D" parent="."]
+
+[node name="Node2D" parent="Enemy" instance=ExtResource("5_dn5ey")]
+position = Vector2(1335, 511)
+
+[node name="Node2D2" parent="Enemy" instance=ExtResource("5_dn5ey")]
+position = Vector2(2129, 511)
+
+[node name="enemy" parent="Enemy" instance=ExtResource("5_dn5ey")]
+position = Vector2(3319, 514)
+
+[node name="bone" type="Node2D" parent="."]
+
+[node name="Area2D" parent="bone" instance=ExtResource("6_lmyl5")]
+position = Vector2(1158, 378)
+
+[node name="hueso" parent="bone" instance=ExtResource("6_lmyl5")]
+position = Vector2(1376, 374)
+
+[node name="hueso2" parent="bone" instance=ExtResource("6_lmyl5")]
+position = Vector2(1592, 372)
+
+[node name="hueso3" parent="bone" instance=ExtResource("6_lmyl5")]
+position = Vector2(1795, 370)
+
+[node name="hueso4" parent="bone" instance=ExtResource("6_lmyl5")]
+position = Vector2(2013, 370)
+
+[node name="hueso5" parent="bone" instance=ExtResource("6_lmyl5")]
+position = Vector2(2275, 368)
+
+[node name="Escalera" type="Node2D" parent="."]
+
+[node name="parte de abajo" parent="Escalera" instance=ExtResource("8_5g1s2")]
+position = Vector2(3495, 373)
+
+[node name="parte del medio" parent="Escalera" instance=ExtResource("9_aiv1b")]
+position = Vector2(3488, 374)
+
+[node name="parte de arriba" parent="Escalera" instance=ExtResource("10_wapi5")]
+position = Vector2(3515, 206)
+
+[node name="parte entre medio" parent="Escalera" instance=ExtResource("11_a2cb0")]
+position = Vector2(3582, 273)
+
+[node name="parte de abajo2" parent="Escalera" instance=ExtResource("8_5g1s2")]
+position = Vector2(4098, 374)
+
+[node name="parte del medio2" parent="Escalera" instance=ExtResource("9_aiv1b")]
+position = Vector2(3989, 374)
+
+[node name="parte entre medio2" parent="Escalera" instance=ExtResource("11_a2cb0")]
+position = Vector2(3998, 267)
+
+[node name="parte de arriba2" parent="Escalera" instance=ExtResource("10_wapi5")]
+position = Vector2(3852, 196)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="BonesLabel" type="Label" parent="HUD"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 49
+text = "Bones: 0"
