@@ -1,19 +1,19 @@
 [gd_scene load_steps=5 format=3 uid="uid://xoehnqgg1hql"]
 
 [ext_resource type="Script" uid="uid://npru0mriqvsa" path="res://hueso.gd" id="1_jil6c"]
-[ext_resource type="Texture2D" uid="uid://3e7qtv5r6rvc" path="res://hueso.png" id="1_jnyqx"]
+[ext_resource type="Texture2D" uid="uid://nh4ft55tfmtx" path="res://huesito_bria.png" id="2_jil6c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jil6c"]
-size = Vector2(30.5, 15)
+size = Vector2(31.5, 23)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_00deu"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_jnyqx")
+"texture": ExtResource("2_jil6c")
 }],
 "loop": true,
-"name": &"hueso",
+"name": &"new_animation",
 "speed": 5.0
 }]
 
@@ -21,11 +21,13 @@ animations = [{
 script = ExtResource("1_jil6c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.25, -0.5)
+position = Vector2(0.25, 3.5)
 shape = SubResource("RectangleShape2D_jil6c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.07288e-06, 4)
+scale = Vector2(0.0332031, 0.0253906)
 sprite_frames = SubResource("SpriteFrames_00deu")
-animation = &"hueso"
+animation = &"new_animation"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
