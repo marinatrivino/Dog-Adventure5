@@ -1,19 +1,88 @@
-[gd_scene load_steps=15 format=3 uid="uid://c3xss1uis53js"]
+[gd_scene load_steps=29 format=3 uid="uid://c3xss1uis53js"]
 
 [ext_resource type="Script" uid="uid://c24tsb3vbjtsg" path="res://player.gd" id="1_mc20k"]
 [ext_resource type="Texture2D" uid="uid://bc7v8r1q2ea2p" path="res://PERRO DEFINITIVO.png" id="2_cove1"]
+[ext_resource type="Texture2D" uid="uid://bo071x6sx45xb" path="res://PERRO SALTANDO RECORTADO.png" id="3_3gjqj"]
 [ext_resource type="PackedScene" uid="uid://h8y1svru7xq8" path="res://floor.tscn" id="3_cove1"]
 [ext_resource type="PackedScene" uid="uid://crya0wdu088mk" path="res://step.tscn" id="4_dwyiq"]
 [ext_resource type="PackedScene" uid="uid://dhk2emihqbksm" path="res://Enemy.tscn" id="5_dn5ey"]
 [ext_resource type="Texture2D" uid="uid://bs5k0oxbg25aj" path="res://pared.png" id="5_mlbie"]
 [ext_resource type="PackedScene" uid="uid://xoehnqgg1hql" path="res://hueso.tscn" id="6_lmyl5"]
 [ext_resource type="PackedScene" uid="uid://x2ba0chgykd6" path="res://parte_de_abajo.tscn" id="8_5g1s2"]
+[ext_resource type="Script" uid="uid://npru0mriqvsa" path="res://hueso.gd" id="8_a2cb0"]
 [ext_resource type="PackedScene" uid="uid://bpmj1jri1bmbh" path="res://parte_del_medio.tscn" id="9_aiv1b"]
 [ext_resource type="PackedScene" uid="uid://c04f0mpkpoaye" path="res://parte_de_arriba.tscn" id="10_wapi5"]
 [ext_resource type="PackedScene" uid="uid://8stons7vwfer" path="res://parte_entre_medio.tscn" id="11_a2cb0"]
+[ext_resource type="Texture2D" uid="uid://b46r8onwl3c5k" path="res://parte del medio.png" id="12_aiv1b"]
+[ext_resource type="Texture2D" uid="uid://crca0ctfwimul" path="res://parte entre medio.png" id="13_3gjqj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwyiq"]
 size = Vector2(103.5, 105)
+
+[sub_resource type="Animation" id="Animation_g56ap"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_cove1")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture:load_path")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["res://.godot/imported/PERRO DEFINITIVO.png-08882bb5c769b5e7ec539b0e11c0338b.ctex"]
+}
+
+[sub_resource type="Animation" id="Animation_na6ls"]
+resource_name = "walk"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.13333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_cove1"), ExtResource("3_3gjqj")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture:load_path")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["res://.godot/imported/PERRO DEFINITIVO.png-08882bb5c769b5e7ec539b0e11c0338b.ctex"]
+}
+
+[sub_resource type="Animation" id="Animation_fjxbk"]
+resource_name = "jump"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3jhf0"]
+_data = {
+&"RESET": SubResource("Animation_g56ap"),
+&"jump": SubResource("Animation_fjxbk"),
+&"walk": SubResource("Animation_na6ls")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cove1"]
 size = Vector2(200.5, 648)
@@ -29,11 +98,27 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gjqj"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_g56ap"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5g1s2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aiv1b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wapi5"]
+size = Vector2(442, 286)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2cb0"]
+size = Vector2(454.25, 234.813)
+
 [node name="Level1" type="Node2D"]
 
 [node name="Player" type="CharacterBody2D" parent="."]
 slide_on_ceiling = false
 script = ExtResource("1_mc20k")
+speed = null
+jump_force = null
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 position = Vector2(77, 491.125)
@@ -47,10 +132,18 @@ shape = SubResource("RectangleShape2D_dwyiq")
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(76, 445)
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+libraries = {
+&"": SubResource("AnimationLibrary_3jhf0")
+}
+
 [node name="Floor" type="Node2D" parent="."]
 position = Vector2(2, 1)
 
 [node name="StaticBody2D" parent="Floor" instance=ExtResource("3_cove1")]
+position = Vector2(-23, 514)
+
+[node name="StaticBody2D2" parent="Floor" instance=ExtResource("3_cove1")]
 position = Vector2(-23, 514)
 
 [node name="Floor" parent="Floor" instance=ExtResource("3_cove1")]
@@ -117,6 +210,15 @@ position = Vector2(2013, 370)
 [node name="hueso5" parent="bone" instance=ExtResource("6_lmyl5")]
 position = Vector2(2275, 368)
 
+[node name="hueso6" type="Area2D" parent="bone"]
+script = ExtResource("8_a2cb0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bone/hueso6"]
+shape = SubResource("RectangleShape2D_3gjqj")
+
+[node name="Sprite2D" type="Sprite2D" parent="bone/hueso6"]
+texture = SubResource("ImageTexture_g56ap")
+
 [node name="Escalera" type="Node2D" parent="."]
 
 [node name="parte de abajo" parent="Escalera" instance=ExtResource("8_5g1s2")]
@@ -150,3 +252,42 @@ offset_right = 40.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 49
 text = "Bones: 0"
+
+[node name="Plataforma" type="StaticBody2D" parent="."]
+position = Vector2(548, 642)
+scale = Vector2(1, 1.63768)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataforma"]
+shape = SubResource("RectangleShape2D_5g1s2")
+
+[node name="ParteEntreMedio" type="StaticBody2D" parent="."]
+position = Vector2(5395, 643)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParteEntreMedio"]
+shape = SubResource("RectangleShape2D_aiv1b")
+
+[node name="ParteDeArriba" type="StaticBody2D" parent="."]
+position = Vector2(6231, 310)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParteDeArriba"]
+position = Vector2(-343, 713)
+shape = SubResource("RectangleShape2D_wapi5")
+
+[node name="Pared" type="StaticBody2D" parent="."]
+position = Vector2(6262, 764)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pared"]
+position = Vector2(-955, -119)
+shape = SubResource("RectangleShape2D_a2cb0")
+
+[node name="ParteDelMedio" type="Sprite2D" parent="."]
+position = Vector2(5307, 652)
+scale = Vector2(1.75, 4.04098)
+texture = ExtResource("12_aiv1b")
+
+[node name="ParteEntreMedio2" type="Sprite2D" parent="."]
+position = Vector2(5884, 1032)
+scale = Vector2(2.32653, 4.7541)
+texture = ExtResource("13_3gjqj")
+
+[connection signal="body_entered" from="bone/hueso6" to="Player" method="_on_hueso_6_body_entered"]
