@@ -1,6 +1,5 @@
-[gd_scene load_steps=30 format=3 uid="uid://c3xss1uis53js"]
+[gd_scene load_steps=29 format=3 uid="uid://c3xss1uis53js"]
 
-[ext_resource type="Texture2D" uid="uid://r7uem5h3qkdx" path="res://step.png" id="1_g56ap"]
 [ext_resource type="Script" uid="uid://c24tsb3vbjtsg" path="res://player.gd" id="1_mc20k"]
 [ext_resource type="Texture2D" uid="uid://bc7v8r1q2ea2p" path="res://PERRO DEFINITIVO.png" id="2_cove1"]
 [ext_resource type="Texture2D" uid="uid://bo071x6sx45xb" path="res://PERRO SALTANDO RECORTADO.png" id="3_3gjqj"]
@@ -18,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://crca0ctfwimul" path="res://parte entre medio.png" id="13_3gjqj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwyiq"]
-size = Vector2(103.5, 99.5)
+size = Vector2(103.5, 105)
 
 [sub_resource type="Animation" id="Animation_g56ap"]
 length = 0.001
@@ -115,14 +114,11 @@ size = Vector2(454.25, 234.813)
 
 [node name="Level1" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2940.5, 697.5)
-scale = Vector2(176.659, 732.5)
-texture = ExtResource("1_g56ap")
-
 [node name="Player" type="CharacterBody2D" parent="."]
 slide_on_ceiling = false
 script = ExtResource("1_mc20k")
+speed = null
+jump_force = null
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 position = Vector2(77, 491.125)
@@ -130,7 +126,7 @@ scale = Vector2(0.114583, 0.115478)
 texture = ExtResource("2_cove1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(69, 485.75)
+position = Vector2(69.25, 482.5)
 shape = SubResource("RectangleShape2D_dwyiq")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -197,7 +193,7 @@ position = Vector2(3319, 514)
 [node name="bone" type="Node2D" parent="."]
 
 [node name="Area2D" parent="bone" instance=ExtResource("6_lmyl5")]
-position = Vector2(1156, 378)
+position = Vector2(1158, 378)
 
 [node name="hueso" parent="bone" instance=ExtResource("6_lmyl5")]
 position = Vector2(1376, 374)
@@ -258,7 +254,7 @@ theme_override_font_sizes/font_size = 49
 text = "Bones: 0"
 
 [node name="Plataforma" type="StaticBody2D" parent="."]
-position = Vector2(577, 642)
+position = Vector2(548, 642)
 scale = Vector2(1, 1.63768)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataforma"]
