@@ -186,13 +186,13 @@ sprite_frames = SubResource("SpriteFrames_s3sxq")
 [node name="Enemy" type="Node2D" parent="."]
 
 [node name="Node2D" parent="Enemy" instance=ExtResource("5_dn5ey")]
-position = Vector2(1335, 511)
+position = Vector2(1319, 502)
 
 [node name="Node2D2" parent="Enemy" instance=ExtResource("5_dn5ey")]
-position = Vector2(2129, 511)
+position = Vector2(2120, 502)
 
 [node name="enemy" parent="Enemy" instance=ExtResource("5_dn5ey")]
-position = Vector2(3319, 514)
+position = Vector2(3367, 507)
 
 [node name="bone" type="Node2D" parent="."]
 
@@ -229,7 +229,7 @@ texture = SubResource("ImageTexture_g56ap")
 position = Vector2(3495, 373)
 
 [node name="parte del medio" parent="Escalera" instance=ExtResource("9_aiv1b")]
-position = Vector2(3488, 374)
+position = Vector2(3493, 374)
 
 [node name="parte de arriba" parent="Escalera" instance=ExtResource("10_wapi5")]
 position = Vector2(3515, 206)
