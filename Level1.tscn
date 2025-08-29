@@ -1,145 +1,31 @@
-[gd_scene load_steps=30 format=3 uid="uid://c3xss1uis53js"]
+[gd_scene load_steps=17 format=3 uid="uid://c3xss1uis53js"]
 
 [ext_resource type="Texture2D" uid="uid://r7uem5h3qkdx" path="res://step.png" id="1_g56ap"]
-[ext_resource type="Script" uid="uid://c24tsb3vbjtsg" path="res://player.gd" id="1_mc20k"]
-[ext_resource type="Texture2D" uid="uid://bc7v8r1q2ea2p" path="res://PERRO DEFINITIVO.png" id="2_cove1"]
-[ext_resource type="Texture2D" uid="uid://bo071x6sx45xb" path="res://PERRO SALTANDO RECORTADO.png" id="3_3gjqj"]
+[ext_resource type="PackedScene" uid="uid://c7pv13sk6mrp7" path="res://Player.tscn" id="2_g56ap"]
 [ext_resource type="PackedScene" uid="uid://h8y1svru7xq8" path="res://floor.tscn" id="3_cove1"]
 [ext_resource type="PackedScene" uid="uid://crya0wdu088mk" path="res://step.tscn" id="4_dwyiq"]
 [ext_resource type="PackedScene" uid="uid://dhk2emihqbksm" path="res://Enemy.tscn" id="5_dn5ey"]
-[ext_resource type="Texture2D" uid="uid://bs5k0oxbg25aj" path="res://pared.png" id="5_mlbie"]
 [ext_resource type="PackedScene" uid="uid://xoehnqgg1hql" path="res://hueso.tscn" id="6_lmyl5"]
+[ext_resource type="PackedScene" uid="uid://cbny3q11cpmub" path="res://platform.tscn" id="7_3gjqj"]
 [ext_resource type="PackedScene" uid="uid://x2ba0chgykd6" path="res://parte_de_abajo.tscn" id="8_5g1s2"]
-[ext_resource type="Script" uid="uid://npru0mriqvsa" path="res://hueso.gd" id="8_a2cb0"]
+[ext_resource type="PackedScene" uid="uid://byhr4rl738ra7" path="res://step_mas_grande.tscn" id="8_g56ap"]
 [ext_resource type="PackedScene" uid="uid://bpmj1jri1bmbh" path="res://parte_del_medio.tscn" id="9_aiv1b"]
+[ext_resource type="PackedScene" uid="uid://nou7hcxyfdqf" path="res://floor_mediano.tscn" id="9_g56ap"]
+[ext_resource type="PackedScene" uid="uid://eos000wk5eet" path="res://floor_pequeño.tscn" id="9_na6ls"]
+[ext_resource type="PackedScene" uid="uid://doh1052hwmlfi" path="res://floor_chico.tscn" id="10_na6ls"]
 [ext_resource type="PackedScene" uid="uid://c04f0mpkpoaye" path="res://parte_de_arriba.tscn" id="10_wapi5"]
 [ext_resource type="PackedScene" uid="uid://8stons7vwfer" path="res://parte_entre_medio.tscn" id="11_a2cb0"]
-[ext_resource type="Texture2D" uid="uid://b46r8onwl3c5k" path="res://parte del medio.png" id="12_aiv1b"]
-[ext_resource type="Texture2D" uid="uid://crca0ctfwimul" path="res://parte entre medio.png" id="13_3gjqj"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwyiq"]
-size = Vector2(103.5, 99.5)
-
-[sub_resource type="Animation" id="Animation_g56ap"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_cove1")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:texture:load_path")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["res://.godot/imported/PERRO DEFINITIVO.png-08882bb5c769b5e7ec539b0e11c0338b.ctex"]
-}
-
-[sub_resource type="Animation" id="Animation_fjxbk"]
-resource_name = "jump"
-
-[sub_resource type="Animation" id="Animation_na6ls"]
-resource_name = "walk"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.13333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("2_cove1"), ExtResource("3_3gjqj")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:texture:load_path")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["res://.godot/imported/PERRO DEFINITIVO.png-08882bb5c769b5e7ec539b0e11c0338b.ctex"]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3jhf0"]
-_data = {
-&"RESET": SubResource("Animation_g56ap"),
-&"jump": SubResource("Animation_fjxbk"),
-&"walk": SubResource("Animation_na6ls")
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cove1"]
-size = Vector2(200.5, 648)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_s3sxq"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_mlbie")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gjqj"]
-
-[sub_resource type="ImageTexture" id="ImageTexture_g56ap"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5g1s2"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_aiv1b"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wapi5"]
-size = Vector2(442, 286)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2cb0"]
-size = Vector2(454.25, 234.813)
+[ext_resource type="PackedScene" uid="uid://dx82emru2327h" path="res://wall.tscn" id="16_g56ap"]
 
 [node name="Level1" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2940.5, 697.5)
-scale = Vector2(176.659, 732.5)
+position = Vector2(7937, 637)
+scale = Vector2(380.654, 846)
 texture = ExtResource("1_g56ap")
 
-[node name="Player" type="CharacterBody2D" parent="."]
-slide_on_ceiling = false
-script = ExtResource("1_mc20k")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-position = Vector2(77, 491.125)
-scale = Vector2(0.114583, 0.115478)
-texture = ExtResource("2_cove1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(69, 485.75)
-shape = SubResource("RectangleShape2D_dwyiq")
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(76, 445)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
-libraries = {
-&"": SubResource("AnimationLibrary_3jhf0")
-}
+[node name="Player" parent="." instance=ExtResource("2_g56ap")]
+position = Vector2(-21, 383)
 
 [node name="Floor" type="Node2D" parent="."]
 position = Vector2(2, 1)
@@ -171,17 +57,86 @@ position = Vector2(3073, 512)
 [node name="Floor4" parent="Floor" instance=ExtResource("3_cove1")]
 position = Vector2(4058, 508)
 
-[node name="Wall" type="StaticBody2D" parent="."]
-position = Vector2(93, -42)
+[node name="platform" parent="Floor" instance=ExtResource("7_3gjqj")]
+position = Vector2(5082, 560)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
-position = Vector2(-195, 370)
-shape = SubResource("RectangleShape2D_cove1")
+[node name="platform2" parent="Floor" instance=ExtResource("7_3gjqj")]
+position = Vector2(5699, 836)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Wall"]
-position = Vector2(-345.5, 429.5)
-scale = Vector2(1.23571, 1.16114)
-sprite_frames = SubResource("SpriteFrames_s3sxq")
+[node name="Step4" parent="Floor" instance=ExtResource("4_dwyiq")]
+position = Vector2(6171, 745)
+
+[node name="Step5" parent="Floor" instance=ExtResource("4_dwyiq")]
+position = Vector2(6376, 673)
+
+[node name="Step6" parent="Floor" instance=ExtResource("4_dwyiq")]
+position = Vector2(6559, 593)
+
+[node name="StepMasGrande" parent="Floor" instance=ExtResource("8_g56ap")]
+position = Vector2(6730, 521)
+
+[node name="StepMasGrande2" parent="Floor" instance=ExtResource("8_g56ap")]
+position = Vector2(7370, 586)
+
+[node name="Step7" parent="Floor" instance=ExtResource("4_dwyiq")]
+position = Vector2(7975, 525)
+
+[node name="Step8" parent="Floor" instance=ExtResource("4_dwyiq")]
+position = Vector2(8120, 604)
+
+[node name="Step9" parent="Floor" instance=ExtResource("4_dwyiq")]
+position = Vector2(8240, 674)
+
+[node name="Step10" parent="Floor" instance=ExtResource("4_dwyiq")]
+position = Vector2(8386, 737)
+
+[node name="Step11" parent="Floor" instance=ExtResource("4_dwyiq")]
+position = Vector2(8546, 678)
+
+[node name="Step12" parent="Floor" instance=ExtResource("4_dwyiq")]
+position = Vector2(8703, 613)
+
+[node name="Step13" parent="Floor" instance=ExtResource("4_dwyiq")]
+position = Vector2(8862, 544)
+
+[node name="Step14" parent="Floor" instance=ExtResource("4_dwyiq")]
+position = Vector2(8989, 475)
+
+[node name="Step15" parent="Floor" instance=ExtResource("4_dwyiq")]
+position = Vector2(9117, 407)
+
+[node name="Floor5" parent="Floor" instance=ExtResource("3_cove1")]
+position = Vector2(9364, 582)
+
+[node name="Floor6" parent="Floor" instance=ExtResource("3_cove1")]
+position = Vector2(10134, 582)
+
+[node name="Floor7" parent="Floor" instance=ExtResource("3_cove1")]
+position = Vector2(10898, 582)
+
+[node name="Floor8" parent="Floor" instance=ExtResource("3_cove1")]
+position = Vector2(11656, 582)
+
+[node name="Floor9" parent="Floor" instance=ExtResource("3_cove1")]
+position = Vector2(12418, 582)
+
+[node name="Floor10" parent="Floor" instance=ExtResource("3_cove1")]
+position = Vector2(13203, 583)
+
+[node name="FloorMediano" parent="Floor" instance=ExtResource("9_g56ap")]
+position = Vector2(13355, 374)
+
+[node name="floor_chico" parent="Floor" instance=ExtResource("10_na6ls")]
+position = Vector2(13279, 430)
+
+[node name="floorPequeño" parent="Floor" instance=ExtResource("9_na6ls")]
+position = Vector2(13380, 363)
+
+[node name="Floor11" parent="Floor" instance=ExtResource("3_cove1")]
+position = Vector2(13988, 581)
+
+[node name="Floor12" parent="Floor" instance=ExtResource("3_cove1")]
+position = Vector2(14769, 582)
 
 [node name="Enemy" type="Node2D" parent="."]
 
@@ -193,6 +148,27 @@ position = Vector2(2129, 511)
 
 [node name="enemy" parent="Enemy" instance=ExtResource("5_dn5ey")]
 position = Vector2(3319, 514)
+
+[node name="enemy2" parent="Enemy" instance=ExtResource("5_dn5ey")]
+position = Vector2(7124, 528)
+
+[node name="enemy3" parent="Enemy" instance=ExtResource("5_dn5ey")]
+position = Vector2(9704, 585)
+
+[node name="enemy4" parent="Enemy" instance=ExtResource("5_dn5ey")]
+position = Vector2(10355, 584)
+
+[node name="enemy5" parent="Enemy" instance=ExtResource("5_dn5ey")]
+position = Vector2(11024, 584)
+
+[node name="enemy6" parent="Enemy" instance=ExtResource("5_dn5ey")]
+position = Vector2(11667, 582)
+
+[node name="enemy7" parent="Enemy" instance=ExtResource("5_dn5ey")]
+position = Vector2(12319, 583)
+
+[node name="enemy8" parent="Enemy" instance=ExtResource("5_dn5ey")]
+position = Vector2(13732, 355)
 
 [node name="bone" type="Node2D" parent="."]
 
@@ -214,14 +190,38 @@ position = Vector2(2013, 370)
 [node name="hueso5" parent="bone" instance=ExtResource("6_lmyl5")]
 position = Vector2(2275, 368)
 
-[node name="hueso6" type="Area2D" parent="bone"]
-script = ExtResource("8_a2cb0")
+[node name="hueso6" parent="bone" instance=ExtResource("6_lmyl5")]
+position = Vector2(5302, 445)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bone/hueso6"]
-shape = SubResource("RectangleShape2D_3gjqj")
+[node name="hueso7" parent="bone" instance=ExtResource("6_lmyl5")]
+position = Vector2(7132, 358)
 
-[node name="Sprite2D" type="Sprite2D" parent="bone/hueso6"]
-texture = SubResource("ImageTexture_g56ap")
+[node name="hueso8" parent="bone" instance=ExtResource("6_lmyl5")]
+position = Vector2(7781, 439)
+
+[node name="hueso9" parent="bone" instance=ExtResource("6_lmyl5")]
+position = Vector2(9156, 294)
+
+[node name="hueso10" parent="bone" instance=ExtResource("6_lmyl5")]
+position = Vector2(10029, 555)
+
+[node name="hueso11" parent="bone" instance=ExtResource("6_lmyl5")]
+position = Vector2(10686, 551)
+
+[node name="hueso12" parent="bone" instance=ExtResource("6_lmyl5")]
+position = Vector2(11337, 551)
+
+[node name="hueso13" parent="bone" instance=ExtResource("6_lmyl5")]
+position = Vector2(11973, 549)
+
+[node name="hueso14" parent="bone" instance=ExtResource("6_lmyl5")]
+position = Vector2(12626, 548)
+
+[node name="hueso15" parent="bone" instance=ExtResource("6_lmyl5")]
+position = Vector2(13732, 207)
+
+[node name="hueso16" parent="bone" instance=ExtResource("6_lmyl5")]
+position = Vector2(3979, 148)
 
 [node name="Escalera" type="Node2D" parent="."]
 
@@ -252,46 +252,12 @@ position = Vector2(3852, 196)
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="BonesLabel" type="Label" parent="HUD"]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 28.0
+offset_top = 16.0
+offset_right = 228.0
+offset_bottom = 84.0
 theme_override_font_sizes/font_size = 49
 text = "Bones: 0"
 
-[node name="Plataforma" type="StaticBody2D" parent="."]
-position = Vector2(577, 642)
-scale = Vector2(1, 1.63768)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataforma"]
-shape = SubResource("RectangleShape2D_5g1s2")
-
-[node name="ParteEntreMedio" type="StaticBody2D" parent="."]
-position = Vector2(5395, 643)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ParteEntreMedio"]
-shape = SubResource("RectangleShape2D_aiv1b")
-
-[node name="ParteDeArriba" type="StaticBody2D" parent="."]
-position = Vector2(6231, 310)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ParteDeArriba"]
-position = Vector2(-343, 713)
-shape = SubResource("RectangleShape2D_wapi5")
-
-[node name="Pared" type="StaticBody2D" parent="."]
-position = Vector2(6262, 764)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pared"]
-position = Vector2(-955, -119)
-shape = SubResource("RectangleShape2D_a2cb0")
-
-[node name="ParteDelMedio" type="Sprite2D" parent="."]
-position = Vector2(5307, 652)
-scale = Vector2(1.75, 4.04098)
-texture = ExtResource("12_aiv1b")
-
-[node name="ParteEntreMedio2" type="Sprite2D" parent="."]
-position = Vector2(5884, 1032)
-scale = Vector2(2.32653, 4.7541)
-texture = ExtResource("13_3gjqj")
-
-[connection signal="body_entered" from="bone/hueso6" to="Player" method="_on_hueso_6_body_entered"]
+[node name="Wall2" parent="." instance=ExtResource("16_g56ap")]
+position = Vector2(-523, 194)
