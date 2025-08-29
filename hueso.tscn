@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://nh4ft55tfmtx" path="res://huesito_bria.png" id="2_jil6c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jil6c"]
-size = Vector2(31.5, 23)
+size = Vector2(43.5, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_00deu"]
 animations = [{
@@ -21,12 +21,12 @@ animations = [{
 script = ExtResource("1_jil6c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.25, 3.5)
+position = Vector2(6.25, 8)
 shape = SubResource("RectangleShape2D_jil6c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1.07288e-06, 4)
-scale = Vector2(0.0332031, 0.0253906)
+position = Vector2(6.00001, 9.00001)
+scale = Vector2(0.0449219, 0.0351562)
 sprite_frames = SubResource("SpriteFrames_00deu")
 animation = &"new_animation"
 
