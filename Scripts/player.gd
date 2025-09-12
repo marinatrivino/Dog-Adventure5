@@ -3,11 +3,12 @@ extends CharacterBody2D
 @export var speed := 200
 @export var jump_force := -400
 var gravity := 980
+
 var bones = 0
 var anim: AnimationPlayer
 var respawn_position: Vector2
-
-
+var death_y: float = 1200.0
+var invulnerable := false
 
 func _physics_process(delta):
 	velocity.x = 0
@@ -36,18 +37,13 @@ func add_bone():
 	var label = get_node("/root/Level1/HUD/BonesLabel")
 	label.text = "Bones: " + str(bones)
 
-
 func _on_hueso_6_body_entered(body: Node2D) -> void:
-	if body.name == "Player": # Si el nodo que entró se llama Perro
-		queue_free() # Borra el huesito (como si lo hubiera agarrado)
+	if body.name == "Player": 
+		queue_free() 
 
 func _ready():
 	anim = $AnimationPlayer
-	respawn_position = global_position  # guardamos el inicio del nivel
-
-
-var death_y: float = 1200.0
-var invulnerable := false
+	respawn_position = global_position  
 
 
 func die():

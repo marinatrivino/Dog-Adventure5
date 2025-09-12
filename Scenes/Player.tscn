@@ -54,9 +54,9 @@ rotation = 1.5708
 scale = Vector2(0.115234, 0.115906)
 shape = SubResource("CapsuleShape2D_kne1u")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(8.99971, -58.0001)
-
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
 position = Vector2(-23, -18)
 shape = SubResource("CapsuleShape2D_e80uo")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(8.99971, -58.0001)

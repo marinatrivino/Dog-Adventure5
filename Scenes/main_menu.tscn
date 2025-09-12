@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://csrf04pvfdwjf"]
+
+[ext_resource type="Script" uid="uid://b7eswc4taogei" path="res://Scripts/main_menu.gd" id="1_28flt"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1151.0
+offset_bottom = 647.0
+script = ExtResource("1_28flt")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 527.0
+offset_top = 67.0
+offset_right = 648.0
+offset_bottom = 95.0
+text = "Dog Adventure"
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 423.0
+offset_top = 177.0
+offset_right = 516.0
+offset_bottom = 236.0
+text = "Play"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_button_pressed"]
