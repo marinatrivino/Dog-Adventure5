@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://c7pv13sk6mrp7"]
+
+[ext_resource type="Script" uid="uid://c24tsb3vbjtsg" path="res://Scripts/player.gd" id="1_kpjcp"]
+[ext_resource type="Texture2D" uid="uid://bc7v8r1q2ea2p" path="res://Assets/PERRO DEFINITIVO.png" id="1_xhfnw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kpjcp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xhfnw")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xhfnw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kpjcp"]
+radius = 31.0047
+height = 85.9984
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kne1u"]
+radius = 147.526
+height = 431.379
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e80uo"]
+radius = 16.0
+height = 32.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_kpjcp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(13.8125, -13.5)
+scale = Vector2(0.114827, 0.118164)
+sprite_frames = SubResource("SpriteFrames_kpjcp")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-1.00029, -0.00012207)
+rotation = 1.56587
+shape = SubResource("CapsuleShape2D_kpjcp")
+one_way_collision_margin = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(33.9997, -45.0001)
+rotation = 1.5708
+scale = Vector2(0.115234, 0.115906)
+shape = SubResource("CapsuleShape2D_kne1u")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(8.99971, -58.0001)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(-23, -18)
+shape = SubResource("CapsuleShape2D_e80uo")
