@@ -1,0 +1,86 @@
+[gd_scene load_steps=11 format=3 uid="uid://cptafvgh8e7gg"]
+
+[ext_resource type="Texture2D" uid="uid://r7uem5h3qkdx" path="res://Assets/step.png" id="1_ejprb"]
+[ext_resource type="PackedScene" uid="uid://c7pv13sk6mrp7" path="res://Scenes/Player.tscn" id="2_au75x"]
+[ext_resource type="PackedScene" uid="uid://h8y1svru7xq8" path="res://Scenes/floor.tscn" id="3_62f1r"]
+[ext_resource type="PackedScene" uid="uid://did30tquqh6ek" path="res://Scenes/rectangulo_alto.tscn" id="4_1je60"]
+[ext_resource type="PackedScene" uid="uid://dx82emru2327h" path="res://Scenes/wall.tscn" id="5_ycmr1"]
+[ext_resource type="PackedScene" uid="uid://x2ba0chgykd6" path="res://Scenes/parte_de_abajo.tscn" id="6_2jwna"]
+[ext_resource type="PackedScene" uid="uid://bpmj1jri1bmbh" path="res://Scenes/parte_del_medio.tscn" id="7_sgc6j"]
+[ext_resource type="PackedScene" uid="uid://c04f0mpkpoaye" path="res://Scenes/parte_de_arriba.tscn" id="8_xx40l"]
+[ext_resource type="PackedScene" uid="uid://8stons7vwfer" path="res://Scenes/parte_entre_medio.tscn" id="9_utdxf"]
+[ext_resource type="PackedScene" uid="uid://bdgpncc1m68w3" path="res://Scenes/platform_media.tscn" id="10_8wk15"]
+
+[node name="Level2" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3705, 308)
+scale = Vector2(199.727, 533)
+texture = ExtResource("1_ejprb")
+
+[node name="Player" parent="." instance=ExtResource("2_au75x")]
+position = Vector2(-13, 384)
+
+[node name="Floor" type="Node2D" parent="."]
+
+[node name="Floor" parent="Floor" instance=ExtResource("3_62f1r")]
+position = Vector2(-156, 518)
+
+[node name="Floor2" parent="Floor" instance=ExtResource("3_62f1r")]
+position = Vector2(817, 517)
+
+[node name="Floor3" parent="Floor" instance=ExtResource("3_62f1r")]
+position = Vector2(1472, 517)
+
+[node name="Floor4" parent="Floor" instance=ExtResource("3_62f1r")]
+position = Vector2(2448, 517)
+
+[node name="Floor5" parent="Floor" instance=ExtResource("3_62f1r")]
+position = Vector2(3805, 516)
+
+[node name="Rectangulo alto" parent="Floor" instance=ExtResource("4_1je60")]
+position = Vector2(4596, 285)
+
+[node name="Wall" parent="." instance=ExtResource("5_ycmr1")]
+position = Vector2(-521, 188)
+
+[node name="Escalera" type="Node2D" parent="."]
+
+[node name="parte de abajo" parent="Escalera" instance=ExtResource("6_2jwna")]
+position = Vector2(1892, 379)
+
+[node name="parte del medio" parent="Escalera" instance=ExtResource("7_sgc6j")]
+position = Vector2(1885, 378)
+
+[node name="parte de arriba" parent="Escalera" instance=ExtResource("8_xx40l")]
+position = Vector2(1912, 198)
+
+[node name="parte entre medio" parent="Escalera" instance=ExtResource("9_utdxf")]
+position = Vector2(1979, 269)
+
+[node name="parte de abajo2" parent="Escalera" instance=ExtResource("6_2jwna")]
+position = Vector2(2486, 377)
+
+[node name="parte del medio2" parent="Escalera" instance=ExtResource("7_sgc6j")]
+position = Vector2(2377, 377)
+
+[node name="parte entre medio2" parent="Escalera" instance=ExtResource("9_utdxf")]
+position = Vector2(2386, 270)
+
+[node name="parte de arriba2" parent="Escalera" instance=ExtResource("8_xx40l")]
+position = Vector2(2240, 199)
+
+[node name="parte de abajo3" parent="Escalera" instance=ExtResource("6_2jwna")]
+position = Vector2(4226, 378)
+
+[node name="parte del medio3" parent="Escalera" instance=ExtResource("7_sgc6j")]
+position = Vector2(4219, 377)
+
+[node name="parte entre medio3" parent="Escalera" instance=ExtResource("9_utdxf")]
+position = Vector2(4313, 270)
+
+[node name="parte de arriba3" parent="Escalera" instance=ExtResource("8_xx40l")]
+position = Vector2(4245, 201)
+
+[node name="platformMedia" parent="." instance=ExtResource("10_8wk15")]
+position = Vector2(3462, 548)
