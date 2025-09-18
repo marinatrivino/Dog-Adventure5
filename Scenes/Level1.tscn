@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c3xss1uis53js"]
+[gd_scene load_steps=26 format=3 uid="uid://c3xss1uis53js"]
 
 [ext_resource type="Texture2D" uid="uid://r7uem5h3qkdx" path="res://Assets/step.png" id="1_ug0sv"]
 [ext_resource type="PackedScene" uid="uid://c7pv13sk6mrp7" path="res://Scenes/Player.tscn" id="2_0wsr5"]
@@ -16,16 +16,104 @@
 [ext_resource type="PackedScene" uid="uid://c04f0mpkpoaye" path="res://Scenes/parte_de_arriba.tscn" id="14_iswit"]
 [ext_resource type="PackedScene" uid="uid://8stons7vwfer" path="res://Scenes/parte_entre_medio.tscn" id="15_ud1sj"]
 [ext_resource type="PackedScene" uid="uid://dx82emru2327h" path="res://Scenes/wall.tscn" id="16_qvja8"]
+[ext_resource type="Texture2D" uid="uid://cd40bc3ckb4cv" path="res://Assets/FONDO DEL JUEGO.png" id="17_0wsr5"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_0wsr5"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_jgorv"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_q1ws5"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_yji5v"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_ulvkb"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_fh0sh"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_03od6"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_384de"]
 
 [node name="Level1" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(7937, 637)
+position = Vector2(7682, 587)
 scale = Vector2(380.654, 846)
 texture = ExtResource("1_ug0sv")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -1.0
+offset_top = -72.0
+offset_right = 1714.0
+offset_bottom = 1013.0
+texture = ExtResource("17_0wsr5")
+
+[node name="FondoDelJuego" type="Sprite2D" parent="TextureRect"]
+position = Vector2(2424, 504)
+texture = ExtResource("17_0wsr5")
+
+[node name="FondoDelJuego2" type="Sprite2D" parent="TextureRect"]
+position = Vector2(3944, 448)
+texture = ExtResource("17_0wsr5")
+
+[node name="FondoDeljuego3" type="Sprite2D" parent="TextureRect"]
+texture = SubResource("ImageTexture_0wsr5")
+
+[node name="FondoDelJuego11" type="Sprite2D" parent="TextureRect"]
+position = Vector2(5453, 435)
+texture = ExtResource("17_0wsr5")
+
+[node name="FondoDeljuego4" type="Sprite2D" parent="TextureRect"]
+texture = SubResource("ImageTexture_jgorv")
+
+[node name="FondoDelJuego4" type="Sprite2D" parent="TextureRect"]
+position = Vector2(6944, 407)
+texture = ExtResource("17_0wsr5")
+
+[node name="FondoDeljuego5" type="Sprite2D" parent="TextureRect"]
+texture = SubResource("ImageTexture_q1ws5")
+
+[node name="FondoDelJuego5" type="Sprite2D" parent="TextureRect"]
+position = Vector2(8462, 422)
+texture = ExtResource("17_0wsr5")
+
+[node name="FondoDeljuego6" type="Sprite2D" parent="TextureRect"]
+texture = SubResource("ImageTexture_yji5v")
+
+[node name="FondoDelJuego6" type="Sprite2D" parent="TextureRect"]
+position = Vector2(9962, 416)
+texture = ExtResource("17_0wsr5")
+
+[node name="FondoDeljuego7" type="Sprite2D" parent="TextureRect"]
+texture = SubResource("ImageTexture_ulvkb")
+
+[node name="FondoDelJuego7" type="Sprite2D" parent="TextureRect"]
+position = Vector2(11467, 426)
+texture = ExtResource("17_0wsr5")
+
+[node name="FondoDeljuego8" type="Sprite2D" parent="TextureRect"]
+texture = SubResource("ImageTexture_fh0sh")
+
+[node name="FondoDelJuego12" type="Sprite2D" parent="TextureRect"]
+position = Vector2(12984, 373)
+texture = ExtResource("17_0wsr5")
+
+[node name="FondoDeljuego12" type="Sprite2D" parent="TextureRect"]
+texture = SubResource("ImageTexture_03od6")
+
+[node name="FondoDelJuego13" type="Sprite2D" parent="TextureRect"]
+position = Vector2(14522, 379)
+texture = ExtResource("17_0wsr5")
+
+[node name="Fondodeljuego14" type="Sprite2D" parent="TextureRect"]
+texture = SubResource("ImageTexture_384de")
+
+[node name="FondoDelJuego15" type="Sprite2D" parent="TextureRect"]
+position = Vector2(15871, 389)
+texture = ExtResource("17_0wsr5")
+
 [node name="Player" parent="." instance=ExtResource("2_0wsr5")]
-position = Vector2(107, 507)
+position = Vector2(57, 498)
 
 [node name="Floor" type="Node2D" parent="."]
 position = Vector2(2, 1)
@@ -40,7 +128,7 @@ position = Vector2(-23, 514)
 position = Vector2(914, 508)
 
 [node name="Floor2" parent="Floor" instance=ExtResource("3_jgorv")]
-position = Vector2(1685, 508)
+position = Vector2(1700, 508)
 
 [node name="Step" parent="Floor" instance=ExtResource("4_q1ws5")]
 position = Vector2(2444, 428)
