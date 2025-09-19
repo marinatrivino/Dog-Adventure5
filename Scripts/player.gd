@@ -5,31 +5,53 @@ extends CharacterBody2D
 var gravity := 980
 
 var bones = 0
-var anim: AnimationPlayer
 var respawn_position: Vector2
 var death_y: float = 1200.0
 var invulnerable := false
 
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+func _ready():
+	respawn_position = global_position
+
+
 func _physics_process(delta):
+	# Movimiento horizontal
 	velocity.x = 0
 	if Input.is_action_pressed("ui_right"):
 		velocity.x += speed
-	if Input.is_action_pressed("ui_left"):
+		animated_sprite.flip_h = false
+	elif Input.is_action_pressed("ui_left"):
 		velocity.x -= speed
+		animated_sprite.flip_h = true
+
 	# Gravedad
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	else:
-		velocity.y = 0  # ⚠️ resetea al tocar el piso
+		velocity.y = 0  # resetea al tocar el piso
 
+	# Saltar
 	if is_on_floor() and Input.is_action_just_pressed("ui_accept"):
 		velocity.y = jump_force
-	
+
+	# Muerte si cae demasiado
 	if global_position.y > death_y:
 		print("Cayó abajo, debería morir")
 		die()
-	
+
+	# Movimiento real
 	move_and_slide()
+
+	# --------------------------
+	# Animaciones
+	# --------------------------
+	if not is_on_floor():
+		animated_sprite.play("jump")
+	elif velocity.x != 0:
+		animated_sprite.play("walk")
+	else:
+		animated_sprite.play("idle")
 
 
 func add_bone():
@@ -40,11 +62,6 @@ func add_bone():
 func _on_hueso_6_body_entered(body: Node2D) -> void:
 	if body.name == "Player": 
 		queue_free() 
-
-func _ready():
-	anim = $AnimationPlayer
-	respawn_position = global_position  
-
 
 func die():
 	if invulnerable:
