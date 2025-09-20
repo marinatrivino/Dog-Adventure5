@@ -46,7 +46,7 @@ func _physics_process(delta):
 	# --------------------------
 	# Animaciones
 	# --------------------------
-	if not is_on_floor():
+	if not is_on_floor():    
 		animated_sprite.play("jump")
 	elif velocity.x != 0:
 		animated_sprite.play("walk")

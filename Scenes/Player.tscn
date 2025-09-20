@@ -59,7 +59,7 @@ position = Vector2(14, -16)
 rotation = -0.00623672
 scale = Vector2(0.108968, 0.110352)
 sprite_frames = SubResource("SpriteFrames_kpjcp")
-animation = &"idle"
+animation = &"walk"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(-2, -7)
