@@ -10,6 +10,8 @@ var start_position: Vector2
 
 func _ready():
 	start_position = global_position  # Guardamos posición inicial
+	$Area2D.body_entered.connect(_on_area_2d_body_entered)
+	
 
 func _process(delta):
 	# Mover horizontalmente
@@ -25,5 +27,7 @@ func _process(delta):
 		$AnimatedSprite2D.flip_h = true
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.name == "Player" and body.has_method("on_respawn"):
-		body.on_respawn()
+	#if body.name == "Player" and body.has_method("on_respawn"):
+	#	body.on_respawn()
+	if body.is_in_group("player"):  
+		GameManager.lose_life()  

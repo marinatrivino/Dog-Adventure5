@@ -7,10 +7,11 @@ signal player_died(lives_left)
 func lose_life():
 	lives -= 1
 	emit_signal("player_died", lives)
-
+	var player = get_tree().get_first_node_in_group("player")
 	if lives <= 0:
 		game_over()
-	else:
+	elif player:
+		player.die()
 		respawn_player()
 
 func respawn_player():

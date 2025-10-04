@@ -56,8 +56,8 @@ func _physics_process(delta):
 
 func add_bone():
 	bones += 1
-	var label = get_node("/root/Level1/HUD/BonesLabel")
-	label.text = "Bones: " + str(bones)
+	HUD.bones = bones
+	HUD.update_hud()
 
 func _on_hueso_6_body_entered(body: Node2D) -> void:
 	if body.name == "Player": 
@@ -76,9 +76,14 @@ func die():
 		$CollisionShape2D.disabled = true
 	GameManager.lose_life()
 	
-	var timer = get_tree().create_timer(1.0)
-	await timer.timeout
-	on_respawn()
+	if GameManager.lives > 0:
+		var timer = get_tree().create_timer(1.0)
+		await timer.timeout
+		on_respawn()
+	else:
+		GameManager.game_over()
+	
+	
 
 func on_respawn():
 	global_position = GameManager.respawn_position
